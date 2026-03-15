@@ -1,0 +1,167 @@
+import * as antlr from "antlr4ng";
+import { Token } from "antlr4ng";
+
+export class bnfLexer extends antlr.Lexer {
+  public static readonly T__0 = 1;
+  public static readonly T__1 = 2;
+  public static readonly T__2 = 3;
+  public static readonly T__3 = 4;
+  public static readonly T__4 = 5;
+  public static readonly T__5 = 6;
+  public static readonly T__6 = 7;
+  public static readonly T__7 = 8;
+  public static readonly T__8 = 9;
+  public static readonly ASSIGN = 10;
+  public static readonly RULE_ID = 11;
+  public static readonly STRING_LITERAL = 12;
+  public static readonly WS = 13;
+
+  public static readonly channelNames = ["DEFAULT_TOKEN_CHANNEL", "HIDDEN"];
+
+  public static readonly literalNames = [
+    null,
+    "'|'",
+    "'{'",
+    "'}'",
+    "'['",
+    "']'",
+    "'('",
+    "')'",
+    "'<'",
+    "'>'",
+    "'::='",
+  ];
+
+  public static readonly symbolicNames = [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "ASSIGN",
+    "RULE_ID",
+    "STRING_LITERAL",
+    "WS",
+  ];
+
+  public static readonly modeNames = ["DEFAULT_MODE"];
+
+  public static readonly ruleNames = [
+    "T__0",
+    "T__1",
+    "T__2",
+    "T__3",
+    "T__4",
+    "T__5",
+    "T__6",
+    "T__7",
+    "T__8",
+    "ASSIGN",
+    "RULE_ID",
+    "STRING_LITERAL",
+    "WS",
+  ];
+
+  public constructor(input: antlr.CharStream) {
+    super(input);
+    this.interpreter = new antlr.LexerATNSimulator(
+      this,
+      bnfLexer._ATN,
+      bnfLexer.decisionsToDFA,
+      new antlr.PredictionContextCache(),
+    );
+  }
+
+  public get grammarFileName(): string {
+    return "bnf.g4";
+  }
+
+  public get literalNames(): (string | null)[] {
+    return bnfLexer.literalNames;
+  }
+  public get symbolicNames(): (string | null)[] {
+    return bnfLexer.symbolicNames;
+  }
+  public get ruleNames(): string[] {
+    return bnfLexer.ruleNames;
+  }
+
+  public get serializedATN(): number[] {
+    return bnfLexer._serializedATN;
+  }
+
+  public get channelNames(): string[] {
+    return bnfLexer.channelNames;
+  }
+
+  public get modeNames(): string[] {
+    return bnfLexer.modeNames;
+  }
+
+  public static readonly _serializedATN: number[] = [
+    4, 0, 13, 81, 6, -1, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4,
+    7, 4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
+    10, 2, 11, 7, 11, 2, 12, 7, 12, 1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 1, 2, 1, 3, 1,
+    3, 1, 4, 1, 4, 1, 5, 1, 5, 1, 6, 1, 6, 1, 7, 1, 7, 1, 8, 1, 8, 1, 9, 1, 9,
+    1, 9, 1, 9, 1, 10, 1, 10, 5, 10, 52, 8, 10, 10, 10, 12, 10, 55, 9, 10, 1,
+    11, 1, 11, 5, 11, 59, 8, 11, 10, 11, 12, 11, 62, 9, 11, 1, 11, 1, 11, 1, 11,
+    5, 11, 67, 8, 11, 10, 11, 12, 11, 70, 9, 11, 1, 11, 3, 11, 73, 8, 11, 1, 12,
+    4, 12, 76, 8, 12, 11, 12, 12, 12, 77, 1, 12, 1, 12, 0, 0, 13, 1, 1, 3, 2, 5,
+    3, 7, 4, 9, 5, 11, 6, 13, 7, 15, 8, 17, 9, 19, 10, 21, 11, 23, 12, 25, 13,
+    1, 0, 5, 2, 0, 65, 90, 97, 122, 5, 0, 45, 45, 48, 57, 65, 90, 95, 95, 97,
+    122, 1, 0, 34, 34, 1, 0, 39, 39, 3, 0, 9, 10, 13, 13, 32, 32, 85, 0, 1, 1,
+    0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 7, 1, 0, 0, 0, 0, 9, 1, 0,
+    0, 0, 0, 11, 1, 0, 0, 0, 0, 13, 1, 0, 0, 0, 0, 15, 1, 0, 0, 0, 0, 17, 1, 0,
+    0, 0, 0, 19, 1, 0, 0, 0, 0, 21, 1, 0, 0, 0, 0, 23, 1, 0, 0, 0, 0, 25, 1, 0,
+    0, 0, 1, 27, 1, 0, 0, 0, 3, 29, 1, 0, 0, 0, 5, 31, 1, 0, 0, 0, 7, 33, 1, 0,
+    0, 0, 9, 35, 1, 0, 0, 0, 11, 37, 1, 0, 0, 0, 13, 39, 1, 0, 0, 0, 15, 41, 1,
+    0, 0, 0, 17, 43, 1, 0, 0, 0, 19, 45, 1, 0, 0, 0, 21, 49, 1, 0, 0, 0, 23, 72,
+    1, 0, 0, 0, 25, 75, 1, 0, 0, 0, 27, 28, 5, 124, 0, 0, 28, 2, 1, 0, 0, 0, 29,
+    30, 5, 123, 0, 0, 30, 4, 1, 0, 0, 0, 31, 32, 5, 125, 0, 0, 32, 6, 1, 0, 0,
+    0, 33, 34, 5, 91, 0, 0, 34, 8, 1, 0, 0, 0, 35, 36, 5, 93, 0, 0, 36, 10, 1,
+    0, 0, 0, 37, 38, 5, 40, 0, 0, 38, 12, 1, 0, 0, 0, 39, 40, 5, 41, 0, 0, 40,
+    14, 1, 0, 0, 0, 41, 42, 5, 60, 0, 0, 42, 16, 1, 0, 0, 0, 43, 44, 5, 62, 0,
+    0, 44, 18, 1, 0, 0, 0, 45, 46, 5, 58, 0, 0, 46, 47, 5, 58, 0, 0, 47, 48, 5,
+    61, 0, 0, 48, 20, 1, 0, 0, 0, 49, 53, 7, 0, 0, 0, 50, 52, 7, 1, 0, 0, 51,
+    50, 1, 0, 0, 0, 52, 55, 1, 0, 0, 0, 53, 51, 1, 0, 0, 0, 53, 54, 1, 0, 0, 0,
+    54, 22, 1, 0, 0, 0, 55, 53, 1, 0, 0, 0, 56, 60, 5, 34, 0, 0, 57, 59, 8, 2,
+    0, 0, 58, 57, 1, 0, 0, 0, 59, 62, 1, 0, 0, 0, 60, 58, 1, 0, 0, 0, 60, 61, 1,
+    0, 0, 0, 61, 63, 1, 0, 0, 0, 62, 60, 1, 0, 0, 0, 63, 73, 5, 34, 0, 0, 64,
+    68, 5, 39, 0, 0, 65, 67, 8, 3, 0, 0, 66, 65, 1, 0, 0, 0, 67, 70, 1, 0, 0, 0,
+    68, 66, 1, 0, 0, 0, 68, 69, 1, 0, 0, 0, 69, 71, 1, 0, 0, 0, 70, 68, 1, 0, 0,
+    0, 71, 73, 5, 39, 0, 0, 72, 56, 1, 0, 0, 0, 72, 64, 1, 0, 0, 0, 73, 24, 1,
+    0, 0, 0, 74, 76, 7, 4, 0, 0, 75, 74, 1, 0, 0, 0, 76, 77, 1, 0, 0, 0, 77, 75,
+    1, 0, 0, 0, 77, 78, 1, 0, 0, 0, 78, 79, 1, 0, 0, 0, 79, 80, 6, 12, 0, 0, 80,
+    26, 1, 0, 0, 0, 6, 0, 53, 60, 68, 72, 77, 1, 6, 0, 0,
+  ];
+
+  private static __ATN: antlr.ATN;
+  public static get _ATN(): antlr.ATN {
+    if (!bnfLexer.__ATN) {
+      bnfLexer.__ATN = new antlr.ATNDeserializer().deserialize(
+        bnfLexer._serializedATN,
+      );
+    }
+
+    return bnfLexer.__ATN;
+  }
+
+  private static readonly vocabulary = new antlr.Vocabulary(
+    bnfLexer.literalNames,
+    bnfLexer.symbolicNames,
+    [],
+  );
+
+  public override get vocabulary(): antlr.Vocabulary {
+    return bnfLexer.vocabulary;
+  }
+
+  private static readonly decisionsToDFA = bnfLexer._ATN.decisionToState.map(
+    (ds: antlr.DecisionState, index: number) => new antlr.DFA(ds, index),
+  );
+}

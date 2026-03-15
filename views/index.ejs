@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live DSL Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
+  <% if (locals.isProduction) { %>
+  <link rel="stylesheet" href="/assets/main.css">
+  <% } %>
+</head>
+
+<body class="flex flex-col font-sans">
+  <header class="bg-gray-800 p-2 border-b border-gray-700 flex justify-between items-center text-sm">
+    <div class="text-lg">Live DSL Builder</div>
+    <button id="btn-reset" class="bg-red-600 hover:bg-red-500 text-white text-xs px-3 py-1 rounded transition-colors font-semibold" title="Reset everything to default">Reset Default</button>
+  </header>
+
+  <main class="flex-1 flex overflow-hidden relative" id="workspace">
+
+    <%- include('windowMetaDSL'); %>
+
+    <%- include('seperator', {seperatorID: "splitter-1" , leftWidth: "33.33%" }); %>
+
+    <%- include('windowApplicationDSL'); %>
+
+    <%- include('seperator', {seperatorID: "splitter-2" , leftWidth: "66.66%" }); %>
+
+    <%- include('windowVisualizer'); %>
+
+  </main>
+
+  <% if (locals.isProduction) { %>
+  <script type="module" src="/assets/main.js"></script>
+  <% } else { %>
+  <script type="module" src="http://localhost:5173/@vite/client"></script>
+  <script type="module" src="http://localhost:5173/src/main.ts"></script>
+  <% } %>
+</body>
+
+</html>

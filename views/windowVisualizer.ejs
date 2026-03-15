@@ -1,0 +1,15 @@
+<div id="panel-vis" class="flex flex-col h-full bg-gray-900 absolute right-0" style="width: 33.33%;">
+  <div class="bg-gray-800 text-xs font-bold p-2 border-b border-gray-700 flex justify-between items-center shrink-0 pt-0 pb-0 h-10">
+    <span class="ml-2">Visualizer</span>
+    <div class="flex bg-gray-900 rounded overflow-hidden border border-gray-600">
+      <button id="btn-view-ast" class="px-3 py-1 bg-blue-600 text-white hover:bg-blue-500 transition-colors">AST</button>
+      <button id="btn-view-railroad" class="px-3 py-1 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors">Railroad</button>
+    </div>
+  </div>
+
+  <div id="visualizer-ast" class="flex-1 w-full overflow-hidden"></div>
+
+  <div id="visualizer-railroad" class="flex-1 w-full overflow-hidden hidden">
+    <iframe id="railroad-iframe" class="w-full h-full border-none" sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
+</div>

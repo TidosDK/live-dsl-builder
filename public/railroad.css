@@ -1,0 +1,59 @@
+body {
+  background-color: #111827;
+  color: #e5e7eb;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+path {
+  stroke: #9ca3af !important;
+}
+
+g.non-terminal,
+g.terminal {
+  cursor: pointer;
+}
+
+g.non-terminal rect {
+  fill: #1e3a8a !important;
+  stroke: #3b82f6 !important;
+  transition: all 0.05s ease-in-out;
+}
+
+g.non-terminal text {
+  fill: #93c5fd !important;
+  font-family: monospace;
+}
+
+g.terminal rect {
+  fill: #1f2937 !important;
+  stroke: #4b5563 !important;
+  transition: all 0.05s ease-in-out;
+}
+
+g.terminal text {
+  fill: #e5e7eb !important;
+  font-family: monospace;
+}
+
+g.custom-highlight rect {
+  fill: #0ea5e9 !important;
+  stroke: #bae6fd !important;
+}
+
+.diagramHeader {
+  color: #60a5fa;
+  margin-top: 30px;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 5px;
+  transition: all 0.05s ease-in-out;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 4px 8px;
+}
+
+.custom-header-highlight {
+  background-color: #ebc952b3 !important;
+  border-bottom: 4px solid #ebc952ff !important;
+  color: #ffffff !important;
+}

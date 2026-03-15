@@ -1,0 +1,28 @@
+{
+  "name": "meta-dsl",
+  "version": "0.1.0",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "vite",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "antlr4ng": "^3.0.16",
+    "chevrotain": "^12.0.0",
+    "d3": "^7.9.0",
+    "d3-hierarchy": "^3.1.2",
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "monaco-editor": "^0.55.1",
+    "railroad-diagrams": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/d3-hierarchy": "^3.1.7",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.14",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
+  }
+}
