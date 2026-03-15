@@ -1,5 +1,9 @@
 # Live DSL Builder
 
+<img alt="Live DSL Builder Preview Image" src="https://github.com/user-attachments/assets/fe400bc0-1b6d-4c84-b972-4fb477a91430" />
+
+---
+
 Live DSL Builder is a web-based DSL builder with real-time feedback powered by technologies including [Antlr](https://github.com/antlr), [Chevrotain](https://github.com/Chevrotain/chevrotain), [D3.js](https://github.com/d3/d3), and others. The builder allows the user to define custom grammars (Meta DSL) and write application code (Application DSL) with instant visualized feedback.
 
 The Meta DSL uses a modified version of the Antlr [`bnf.g4`](https://github.com/antlr/grammars-v4/blob/cc8a65228690de9ac00c8cd1c4f9a9962d0aef13/ebnf/bnf.g4) file. The custom `.g4` file for this project is located under [`src/antlr/bnf.g4`](/src/antlr/bnf.g4).
