@@ -48,12 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const btnAst = document.getElementById("btn-view-ast")!;
+  const btnExportSvg = document.getElementById("btn-export-svg")!;
   const btnRailroad = document.getElementById("btn-view-railroad")!;
   const visAst = document.getElementById("visualizer-ast")!;
   const visRailroad = document.getElementById("visualizer-railroad")!;
   let currentView: "ast" | "railroad" = "ast";
 
   let currentGrammarDef: any = null;
+
+  btnExportSvg.addEventListener("click", () => {
+    if (currentView === "ast") {
+      treeVisualizer.exportToSvg();
+    } else {
+      alert("SVG export is only supported for the AST diagram");
+    }
+  });
 
   btnAst.addEventListener("click", () => {
     currentView = "ast";

@@ -175,4 +175,59 @@ export class TreeVisualizer {
     }
     return d3Node;
   }
+
+  // Magic method for exporting the AST to a SVG (the AST is a SVG, so we are just cloning it and saving it).
+  public async exportToSvg() {
+    const svgNode = this.container.querySelector("svg");
+    if (!svgNode) return alert("No AST generated to export!");
+
+    const innerG = svgNode.querySelector("g");
+    if (!innerG) return;
+
+    const bbox = innerG.getBBox();
+    const padding = 30;
+
+    const svgClone = svgNode.cloneNode(true) as SVGSVGElement;
+    const cloneG = svgClone.querySelector("g");
+
+    if (cloneG) {
+      cloneG.setAttribute(
+        "transform",
+        `translate(${-bbox.x + padding}, ${-bbox.y + padding})`,
+      );
+    }
+
+    const fullWidth = bbox.width + padding * 2;
+    const fullHeight = bbox.height + padding * 2;
+    svgClone.setAttribute("width", `${fullWidth}`);
+    svgClone.setAttribute("height", `${fullHeight}`);
+    svgClone.setAttribute("viewBox", `0 0 ${fullWidth} ${fullHeight}`);
+
+    const localStylesheets = Array.from(
+      document.querySelectorAll('link[rel="stylesheet"]'),
+    )
+      .map((link) => (link as HTMLLinkElement).href)
+      .filter((href) => href.startsWith(window.location.origin));
+
+    for (const href of localStylesheets) {
+      const cssText = await fetch(href).then((res) => res.text());
+      const style = document.createElement("style");
+      style.textContent = cssText;
+      svgClone.prepend(style);
+    }
+
+    svgClone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    const svgString = new XMLSerializer().serializeToString(svgClone);
+
+    const url = URL.createObjectURL(
+      new Blob([svgString], { type: "image/svg+xml" }),
+    );
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "ast-diagram.svg";
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
 }
