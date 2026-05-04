@@ -15,6 +15,38 @@ The Meta DSL uses a modified version of the Antlr [`bnf.g4`](https://github.com/
 - **DSL Highlighting:** Hovering over nodes in the AST or Railroad diagram highlights the exact source code in the Meta/Application Editor.
 - **Instant Feedback:** Provides instant feedback on both the Meta DSL and Application DSL either saying the code is valid or provides errors.
 
+## How to deploy by using a pre-compiled Docker Image
+
+The application is pre-compiled and located at [hub.docker.com](https://hub.docker.com/repository/docker/tidosdk/live-dsl-builder/general).
+
+1. **Run the container:**
+
+   ```bash
+   docker run --rm -p 3000:3000 tidosdk/live-dsl-builder
+   ```
+
+2. **Open a browser:**
+   Navigate to `http://localhost:3000`
+
+## How to deploy by compiling the Docker Image yourself
+
+Use the existing `Dockerfile` to build and run the application with Docker.
+
+1. **Build the Docker image:**
+
+   ```bash
+   docker build -t live-dsl-builder .
+   ```
+
+2. **Run the container:**
+
+   ```bash
+   docker run -p 3000:3000 live-dsl-builder
+   ```
+
+3. **Open a browser:**
+   Navigate to `http://localhost:3000`
+
 ## How to Run it Locally
 
 To run the application in development mode:
@@ -29,25 +61,6 @@ To run the application in development mode:
 
    ```bash
    npm run dev
-   ```
-
-3. **Open a browser:**
-   Navigate to `http://localhost:3000`
-
-## How to Run it Inside Docker
-
-Use the existing `Dockerfile` to build and run the application with Docker.
-
-1. **Build the Docker image:**
-
-   ```bash
-   docker build -t live-dsl-builder .
-   ```
-
-2. **Run the container:**
-
-   ```bash
-   docker run -p 3000:3000 live-dsl-builder
    ```
 
 3. **Open a browser:**
