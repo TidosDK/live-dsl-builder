@@ -149,4 +149,39 @@ export class EditorManager {
       newDecorations,
     );
   }
+
+  public setErrors(errors: any[]) {
+    const model = this.editor.getModel();
+    if (!model) return;
+
+    const markers: monaco.editor.IMarkerData[] = errors.map((err) => {
+      const startLineNumber = err.token ? err.token.startLine : err.line || 1;
+      const startColumn = err.token ? err.token.startColumn : err.column || 1;
+
+      const endLineNumber = err.token
+        ? err.token.endLine || startLineNumber
+        : startLineNumber;
+      const endColumn = err.token
+        ? (err.token.endColumn || startColumn) + 1
+        : startColumn + (err.length || 1);
+
+      return {
+        severity: monaco.MarkerSeverity.Error,
+        message: err.message,
+        startLineNumber,
+        startColumn,
+        endLineNumber,
+        endColumn,
+      };
+    });
+
+    monaco.editor.setModelMarkers(model, "dsl-validator", markers);
+  }
+
+  public clearErrors() {
+    const model = this.editor.getModel();
+    if (model) {
+      monaco.editor.setModelMarkers(model, "dsl-validator", []);
+    }
+  }
 }

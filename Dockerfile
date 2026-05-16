@@ -13,6 +13,8 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+RUN apk add --no-cache dumb-init
+
 COPY package*.json ./
 RUN npm ci --omit=dev
 
@@ -24,4 +26,4 @@ COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "server.js"]
+ENTRYPOINT ["dumb-init", "--", "node", "server.js"]
